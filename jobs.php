@@ -1,0 +1,151 @@
+<!DOCTYPE html> 
+<html lang= "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Jobs description">
+    <meta name="keywords" content="hiring, job, description, salary">
+    <meta name="author" content="Tisang Lim">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Job Description</title>
+ </head>
+<body id="body2">
+    <!--replaced the header with a php include-->
+    <?php include 'header.inc'; ?>
+
+    <p id="caption">We're looking for</p>
+    <aside id="aside">
+        <figure>
+            <img src="images/Swinburne.png" alt="Swinburne logo" id="swinburne">
+        </figure>
+        <h2>Study online with Swinburne</h2>
+        <p>Swinburne is a world leader in online education. We use interactive and innovative technologies to deliver our online courses and degrees. 
+            From vocational education to undergraduate and postgraduate study, Swinburne has online study options at all level. 
+            <a href="https://www.swinburne.edu.au/">Learn More</a></p>
+    </aside>
+    <section class="job"><!--all of the information related to jobs descriptions is taken from gen ai--> 
+        <h2 class="h2job">Cybersecurity Specialist</h2><!--search prompt was job description for hiring senior cybersecurity specialist-->
+            <h3>Job Descriptions</h3>
+            <ol>
+                <li>Position: Senior Cybersecurity Specialist</li>
+                <li>Type of Job: Full Time</li>
+                <Li>Salary Range: &dollar;140 000 - &dollar;200 000</Li><!--search prompt was job salary for senior cybersecurity specialist-->
+                <li>Location: Hawthorn, Melbourne, VIC</li>
+                <li>Reference Id: REF001</li>
+                <li>Successful Applicant Will Be Reported to: Chief Information Security Officer</li><!--search prompt wasThe title of the position to whom the senior cybersecurity applicant will report-->
+            </ol> 
+            <h3>About This Role</h3>
+                <p>As a Senior Cyber Security Specialist, you will be responsible for proactively identifying, assessing, and mitigating cyber security risks, 
+                    leading incident response efforts, and contributing to the development and implementation of our cybersecurity strategy. You will work closely 
+                    with other IT and business teams to ensure a robust and resilient security posture.  
+                </p>            
+            <h3>Key Responsibilities</h3>
+                <ul>
+                    <li>Monitor security systems and tools for suspicious activity, analyzing events and alerts to identify potential threats.</li>
+                    <li>Contribute to the development and implementation of cybersecurity policies, standards, and procedures.</li>
+                    <li>Possess in-depth knowledge of various security technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions.</li>
+                    <li>Collaborate with other IT and business teams to ensure security requirements are met.</li>
+                    <li>Conduct root cause analysis of security incidents to identify vulnerabilities and prevent future occurrences.</li>
+                </ul>
+            <h3>Required Qualifications and Experiences</h3>
+                <ul>
+                    <li>Bachelor's degree in Computer Science, Information Technology, or a related field. </li>
+                    <li>7+ years of experience in cybersecurity, with a focus on incident response, threat detection, and security strategy. </li>
+                    <li>Experience with security tools and technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions. </li>
+                    <li>Excellent communication, interpersonal, and problem-solving skills. </li>
+                    <li>Relevant industry certifications (e.g., CISSP, CEH, CISM) are preferred. </li>
+                </ul>              
+            <h3>Benifits</h3>
+                <ul>
+                    <li>Competitive salary and benefits package.</li>
+                    <li>Professional development and training opportunities.</li>
+                    <li>A challenging and rewarding career path in cybersecurity.</li>
+                </ul>
+                
+        <p><strong>Interested?</strong> Please apply through this <a href="apply.html">links</a></p>
+    </section>
+    <section class="job">
+        <h2 class="h2job">Software Developer</h2><!--search prompt was job description for hiring junior software developer-->
+            <h3>Job Descriptions</h3>
+            <ol>
+                <li>Position: Junior Software Developer</li>
+                <li>Type of Job: Full Time</li>
+                <Li>Salary Range: &dollar;80 000 - &dollar;90 000</Li><!--search prompt was job salary for junior software developer-->
+                <li>Location: Hawthorn, Melbourne, VIC </li>
+                <li>Reference Id: REF002</li>
+                <li>Successful Applicant Will Be Reported to: Software Engineer Manager</li><!--search prompt wasThe title of the position to whom the junior software developer applicant will report-->
+            </ol> 
+            <h3>About This Role</h3>
+                <p>As a Junior Software Developer, you'll be an integral part of our team, contributing to the development and maintenance of our software products.
+                    This role is designed to provide hands-on experience and mentorship, allowing you to learn and grow your skills in a supportive environment. 
+                    You'll be working alongside experienced developers, gaining valuable knowledge and contributing to real-world projects from day one.
+                </p>
+            <h3>Key Responsibilities</h3>
+                <ul>
+                    <li>Participate in writing, testing, and debugging code under the guidance of senior developers.</li>
+                    <li>Stay current with the latest technologies and programming languages, and be open to learning new tools and techniques.</li>
+                    <li>Work closely with other developers, product managers, and designers to understand requirements and contribute to the development process.</li>
+                    <li>Contribute to the continuous improvement of our software products and processes.</li>
+                    <li>Assist in identifying and resolving software issues, working with senior developers to find solutions.</li>
+                </ul>
+            <h3>Required Qualifications and Experiences</h3>
+                <ul>
+                    <li>Bachelor's degree in Computer Science or a related field, or equivalent experience.</li>
+                    <li>A passion for learning and a desire to continuously improve your skills.</li>
+                    <li>Ability to communicate effectively with both technical and non-technical colleagues.</li>
+                    <li>Familiarity with one or more programming languages (e.g., Python, Java, JavaScript, C#).</li>
+                    <li>Ability to work collaboratively in a team environment.</li>                   
+                </ul>
+            <h3>Benifits</h3>
+                <ul>
+                    <li>A clear path for career advancement within the company.</li>
+                    <li>Opportunity to learn from experienced developers and industry experts.</li>
+                    <li>Access to ongoing training and development opportunities to enhance your skills.</li>
+                </ul>
+        <p><strong>Interested?</strong> Please apply through this <a href="apply.html">links</a></p>   
+    </section>
+    <section class="job">
+        <h2 class="h2job">Data Analyst</h2><!--search prompt job description for hiring entry-level data analyst-->
+            <h3>Job Descriptions</h3>
+            <ol>
+                <li>Position: Entry-Level Data Analyst</li>
+                <li>Type of Job: Full Time</li>
+                <Li>Salary Range: &dollar;90 000 - &dollar;110 000</Li><!--search prompt was job salary for entry level data analyst-->
+                <li>Location: Hawthorn, Melbourne, VIC</li>
+                <li>Reference Id: REF003</li>
+                <li>Successful Applicant Will Be Reported to: Senior Data Analyst</li><!--search prompt wasThe title of the position to whom the entry leverl date analyst applicant will report-->
+            </ol> 
+            <h3>About This Role</h3>
+            <p>We are seeking a highly motivated and detail-oriented entry-level Data Analyst to join our team. As a member of our team, you will play a crucial role in 
+               supporting data-driven decision-making by assisting in the collection, analysis, and interpretation of data, identifying trends and patterns, and 
+               communicating findings to stakeholders. This is an excellent opportunity for someone with a passion for data and a desire to learn and grow within a 
+               dynamic environment. 
+            </p>
+            <h3>Key Responsibilities</h3>
+                <ul>
+                    <li>Assist in gathering data from various sources, ensuring data accuracy and completeness. </li>
+                    <li>Perform basic data analysis tasks, including data cleaning, transformation, and validation, using tools like Excel or SQL.</li>
+                    <li>Create simple charts, graphs, and dashboards to communicate data insights in a clear and concise manner.</li>
+                    <li>Prepare concise and accurate reports summarizing data findings and insights.</li>
+                    <li>Work closely with team members to understand data needs and contribute to data-driven projects.</li>
+                </ul>
+            <h3>Required Qualifications and Experiences</h3>
+                <ul>
+                    <li>Bachelor's degree in a related field (e.g., mathematics, statistics, computer science) or equivalent experience.</li>
+                    <li>Strong analytical and problem-solving skills.</li>
+                    <li>Excellent communication and interpersonal skills.</li>
+                    <li>Basic understanding of databases and SQL (preferred).</li>
+                    <li>Ability to work independently and as part of a team.</li>
+                </ul>
+            <h3>Benifits</h3>
+                <ul>
+                    <li>The chance to make a real impact on our company's success.</li>
+                    <li>A positive and collaborative work environment</li>
+                    <li>Opportunities for professional development and growth.</li>
+                </ul>
+        <p><strong>Interested?</strong> Please apply through this <a href="apply.html">links</a></p>
+    </section>
+    <!--replaced the footer with a php include-->
+      <?php include 'footer.inc'; ?>
+      
+</body>

@@ -23,47 +23,63 @@
             From vocational education to undergraduate and postgraduate study, Swinburne has online study options at all level. 
             <a href="https://www.swinburne.edu.au/">Learn More</a></p>
     </aside>
-    <section class="job"><!--all of the information related to jobs descriptions is taken from gen ai--> 
-        <h2 class="h2job">Cybersecurity Specialist</h2><!--search prompt was job description for hiring senior cybersecurity specialist-->
-            <h3>Job Descriptions</h3>
-            <ol>
-                <li>Position: Senior Cybersecurity Specialist</li>
-                <li>Type of Job: Full Time</li>
-                <Li>Salary Range: &dollar;140 000 - &dollar;200 000</Li><!--search prompt was job salary for senior cybersecurity specialist-->
-                <li>Location: Hawthorn, Melbourne, VIC</li>
-                <li>Reference Id: REF001</li>
-                <li>Successful Applicant Will Be Reported to: Chief Information Security Officer</li><!--search prompt wasThe title of the position to whom the senior cybersecurity applicant will report-->
-            </ol> 
-            <h3>About This Role</h3>
-                <p>As a Senior Cyber Security Specialist, you will be responsible for proactively identifying, assessing, and mitigating cyber security risks, 
-                    leading incident response efforts, and contributing to the development and implementation of our cybersecurity strategy. You will work closely 
-                    with other IT and business teams to ensure a robust and resilient security posture.  
-                </p>            
-            <h3>Key Responsibilities</h3>
-                <ul>
-                    <li>Monitor security systems and tools for suspicious activity, analyzing events and alerts to identify potential threats.</li>
-                    <li>Contribute to the development and implementation of cybersecurity policies, standards, and procedures.</li>
-                    <li>Possess in-depth knowledge of various security technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions.</li>
-                    <li>Collaborate with other IT and business teams to ensure security requirements are met.</li>
-                    <li>Conduct root cause analysis of security incidents to identify vulnerabilities and prevent future occurrences.</li>
-                </ul>
-            <h3>Required Qualifications and Experiences</h3>
-                <ul>
-                    <li>Bachelor's degree in Computer Science, Information Technology, or a related field. </li>
-                    <li>7+ years of experience in cybersecurity, with a focus on incident response, threat detection, and security strategy. </li>
-                    <li>Experience with security tools and technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions. </li>
-                    <li>Excellent communication, interpersonal, and problem-solving skills. </li>
-                    <li>Relevant industry certifications (e.g., CISSP, CEH, CISM) are preferred. </li>
-                </ul>              
-            <h3>Benifits</h3>
-                <ul>
-                    <li>Competitive salary and benefits package.</li>
-                    <li>Professional development and training opportunities.</li>
-                    <li>A challenging and rewarding career path in cybersecurity.</li>
-                </ul>
-                
-        <p><strong>Interested?</strong> Please apply through this <a href="apply.html">links</a></p>
+    <section class="job"> 
+        <?php
+            require_once("settings.php");
+            $conn = mysqli_connect($host, $username, $password, $database);
+            if(!$conn){
+                echo"<p>Database connection failed: " . mysqli_connect_error() . "</p>";
+            }else{
+                echo"connected";
+            }
+        ?>
+            <h2 class="h2job">Cybersecurity Specialist</h2><!--search prompt was job description for hiring senior cybersecurity specialist--          $query ="SELECT * FROM jobs";
+                $job = my_sqli_connect($conn, $query);
+                if($job && my_sqli_num_row($job) > 0){
+                    while($jobs = my_sqli_fetch_assoc($job)){
+                        $job_id = htmlspecialchars($jobs[])
+                    }
+                }>
+                <h3>Job Descriptions</h3>
+                <ol>
+                    <li>Position: Senior Cybersecurity Specialist</li>
+                    <li>Type of Job: Full Time</li>
+                    <Li>Salary Range: &dollar;140 000 - &dollar;200 000</Li><!--search prompt was job salary for senior cybersecurity specialist-->
+                    <li>Location: Hawthorn, Melbourne, VIC</li>
+                    <li>Reference Id: REF001</li>
+                    <li>Successful Applicant Will Be Reported to: Chief Information Security Officer</li><!--search prompt wasThe title of the position to whom the senior cybersecurity applicant will report-->
+                </ol> 
+                <h3>About This Role</h3>
+                    <p>As a Senior Cyber Security Specialist, you will be responsible for proactively identifying, assessing, and mitigating cyber security risks, 
+                        leading incident response efforts, and contributing to the development and implementation of our cybersecurity strategy. You will work closely 
+                        with other IT and business teams to ensure a robust and resilient security posture.  
+                    </p>            
+                <h3>Key Responsibilities</h3>
+                    <ul>
+                        <li>Monitor security systems and tools for suspicious activity, analyzing events and alerts to identify potential threats.</li>
+                        <li>Contribute to the development and implementation of cybersecurity policies, standards, and procedures.</li>
+                        <li>Possess in-depth knowledge of various security technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions.</li>
+                        <li>Collaborate with other IT and business teams to ensure security requirements are met.</li>
+                        <li>Conduct root cause analysis of security incidents to identify vulnerabilities and prevent future occurrences.</li>
+                    </ul>
+                <h3>Required Qualifications and Experiences</h3>
+                    <ul>
+                        <li>Bachelor's degree in Computer Science, Information Technology, or a related field. </li>
+                        <li>7+ years of experience in cybersecurity, with a focus on incident response, threat detection, and security strategy. </li>
+                        <li>Experience with security tools and technologies, including firewalls, intrusion detection/prevention systems, SIEM tools, and endpoint security solutions. </li>
+                        <li>Excellent communication, interpersonal, and problem-solving skills. </li>
+                        <li>Relevant industry certifications (e.g., CISSP, CEH, CISM) are preferred. </li>
+                    </ul>              
+                <h3>Benifits</h3>
+                    <ul>
+                        <li>Competitive salary and benefits package.</li>
+                        <li>Professional development and training opportunities.</li>
+                        <li>A challenging and rewarding career path in cybersecurity.</li>
+                    </ul>
+                    
+            <p><strong>Interested?</strong> Please apply through this <a href="apply.html">links</a></p>
     </section>
+
     <section class="job">
         <h2 class="h2job">Software Developer</h2><!--search prompt was job description for hiring junior software developer-->
             <h3>Job Descriptions</h3>

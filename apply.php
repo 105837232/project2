@@ -15,7 +15,7 @@
     <h2 id="applyh2">Job Application Form</h2>
     <div class="container">
         <main>
-            <form method = "post" action = "http://mercury.swin.edu.au/it000000/formtest.php">
+            <form action="process_eoi.php" method="post" novalidate="novalidate">
             <fieldset class="jobref">
                 <legend>Job Reference Number</legend>
                 <p> <label for = "referenceNumber">Select a Job Reference Number</label>

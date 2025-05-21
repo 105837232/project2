@@ -2,8 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "eoi_db"; 
-
+$database = "project2_db";
 $conn = mysqli_connect($host, $username, $password, $database);
 
 if (!$conn) {

@@ -117,7 +117,7 @@
                     <label for="other_skills_checkbox">Other Skills</label>
                 </p>
                 <p>
-                    <textarea name = "otherSkillsDescription" id = "otherSkillsDescription" rows = "5" cols = "60" placeholder = "Please list any other skills you have, e.g., Project Management, Public Speaking..." disabled></textarea>
+                    <textarea name = "otherSkillsDescription" id = "otherSkillsDescription" rows = "5" cols = "60" placeholder = "Please list any other skills you have, e.g., Project Management, Public Speaking..." ></textarea>
                 </p>
             </fieldset>
             <div class="submition">

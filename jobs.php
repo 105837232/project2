@@ -60,6 +60,18 @@
                         echo"</ol>";
                         echo"<h3>About This Role</h3>";
                         echo"<p>$about</p>" ;
+                        $responsibility = query("responsibilities", $conn, $job_id);
+                        echo"<h3>Key Responsibilities</h3>";
+                        if($responsibility && mysqli_num_rows($responsibility) > 0){
+                            echo"<ul>";
+                            while($responsibilities = mysqli_fetch_assoc($responsibility)){
+                                $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
+                                $description = htmlspecialchars($responsibilities['description']);
+                                echo"<li>$description</li>\n";
+                            }
+                            echo"</ul>";
+                        }
+
                     }
                 }
             }

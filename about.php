@@ -21,13 +21,13 @@
                 <h2>Team members contribution to this project</h2>  
                 <dl>
                     <dt><strong>Anna Sakaida</strong></dt>
-                        <dd>Developed the about.html page. Led the team as the Group Leader by setting internal deadlines, ensuring all project requirements were met, and maintaining progress in line with the initial timeline. Contributed to the design of the header.</dd>
+                        <dd>Developed the about.html page. Led the team as the Group Leader by setting internal deadlines, ensuring all project requirements were met, and maintaining progress in line with the initial timeline. Contributed to the design of the header. Created an EOI table, that stores the Job reference number, first name, last name, Adresses etc. And finaly created adding a validated records for the EOI table </dd>
                     <dt><strong>Teagan O'Shannassy</strong></dt>
-                        <dd>Developed the index.html page and served as the primary liaison with tutors by posting queries on the discussion board. Contributed to the foundational structure for the header and footer.</dd>
+                        <dd>Developed the index.html page and served as the primary liaison with tutors by posting queries on the discussion board. Contributed to the foundational structure for the header and footer. Added the documnet managment.php which holds a HR mannager querries</dd>
                     <dt><strong>Joshua Thai</strong></dt>
-                        <dd>Developed the apply.html page and contributed in designing the header and footer, and provided ongoing support for HTML and CSS troubleshooting across all pages.</dd>
+                        <dd>Developed the apply.html page and contributed in designing the header and footer, and provided ongoing support for HTML and CSS troubleshooting across all pages. Added a header.inc and footer.inc replacing the common html comments, creating a settings.php and finally updating the contribution on the about page</dd>
                     <dt><strong>Tisang Lim</strong></dt>
-                        <dd>Developed the job.html page and managed the Jira board, ensuring tasks were correctly structured and aligned with project standards.</dd>
+                        <dd>Developed the job.html page and managed the Jira board, ensuring tasks were correctly structured and aligned with project standards. Further enhanced the jobs description page</dd>
                 </dl>
             </section>
  

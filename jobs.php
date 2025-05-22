@@ -8,12 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Job Description</title>
- </head>
+</head>
 <body id="body2">
     <!--replaced the header with a php include-->
     <?php include 'header.inc'; ?>
-
-    <p id="caption">We're looking for</p>
     <aside id="aside">
         <figure>
             <img src="images/Swinburne.png" alt="Swinburne logo" id="swinburne">
@@ -23,81 +21,83 @@
             From vocational education to undergraduate and postgraduate study, Swinburne has online study options at all level. 
             <a href="https://www.swinburne.edu.au/">Learn More</a></p>
     </aside>
-    <section class="job"> 
-        <?php
-            require_once("settings.php");
-            $conn = mysqli_connect($host, $username, $password, $database);
-            if(!$conn){
-                echo"<p>Database connection failed: " . mysqli_connect_error() . "</p>";
-            }else{
-                $query ="SELECT * FROM jobs";
-                $job = mysqli_query($conn, $query);
-                function query($section, $conn, $job_id){
-                    $query = "SELECT * FROM $section WHERE job_id = $job_id";
-                    return mysqli_query($conn, $query);
-                }
-                if($job && mysqli_num_rows($job) > 0){
-                    while($jobs = mysqli_fetch_assoc($job)){
-                        $job_id = htmlspecialchars($jobs['job_id']);
-                        $title = htmlspecialchars($jobs['title']);
-                        $role = htmlspecialchars($jobs['role']);
-                        $type = htmlspecialchars($jobs['type']);
-                        $salary_min = htmlspecialchars($jobs['salary_min']);
-                        $salary_max = htmlspecialchars($jobs['salary_max']);
-                        $location = htmlspecialchars($jobs['location']);
-                        $reference_id = htmlspecialchars($jobs['reference_id']);
-                        $report_to = htmlspecialchars($jobs['report_to']);
-                        $about = htmlspecialchars($jobs['about']);
-                        echo"<h2 class='h2job'>$title</h2>";
-                        echo"<h3>Job Descriptions</h3>";
-                        echo"<ol>";
-                        echo"<li>Position: $role $title</li>";
-                        echo"<li>Type of Job: $type</li>";
-                        echo"<Li>Salary Range: $salary_min - $salary_max</Li>";
-                        echo"<li>Location: $location</li>";
-                        echo"<li>Reference Id: $reference_id</li>";
-                        echo"<li>Successful Applicant Will Be Reported to: $report_to</li>";
-                        echo"</ol>";
-                        echo"<h3>About This Role</h3>";
-                        echo"<p>$about</p>" ;
-                        $responsibility = query("responsibilities", $conn, $job_id);
-                        echo"<h3>Key Responsibilities</h3>";
-                        if($responsibility && mysqli_num_rows($responsibility) > 0){
-                            echo"<ul>";
-                            while($responsibilities = mysqli_fetch_assoc($responsibility)){
-                                $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
-                                $description = htmlspecialchars($responsibilities['description']);
-                                echo"<li>$description</li>\n";
-                            }
-                            echo"</ul>";
+    <?php
+        require_once("settings.php");
+        $conn = mysqli_connect($host, $username, $password, $database);
+        if(!$conn){
+        echo"<p>Database connection failed: " . mysqli_connect_error() . "</p>";
+        }else{
+            $query ="SELECT * FROM jobs";
+            $job = mysqli_query($conn, $query);
+            function query($section, $conn, $job_id){
+                $query = "SELECT * FROM $section WHERE job_id = $job_id";
+                return mysqli_query($conn, $query);
+            }
+            if($job && mysqli_num_rows($job) > 0){
+                while($jobs = mysqli_fetch_assoc($job)){
+                    $job_id = htmlspecialchars($jobs['job_id']);
+                    $title = htmlspecialchars($jobs['title']);
+                    $role = htmlspecialchars($jobs['role']);
+                    $type = htmlspecialchars($jobs['type']);
+                    $salary_min = htmlspecialchars($jobs['salary_min']);
+                    $salary_max = htmlspecialchars($jobs['salary_max']);
+                    $location = htmlspecialchars($jobs['location']);
+                    $reference_id = htmlspecialchars($jobs['reference_id']);
+                    $report_to = htmlspecialchars($jobs['report_to']);
+                    $about = htmlspecialchars($jobs['about']);
+                    echo"<section class='job'>";
+                    echo"<h2 class='h2job'>$title</h2>";
+                    echo"<h3>Job Descriptions</h3>";
+                    echo"<ol>";
+                    echo"<li>Position: $role $title</li>";
+                    echo"<li>Type of Job: $type</li>";
+                    echo"<Li>Salary Range: $salary_min - $salary_max</Li>";
+                    echo"<li>Location: $location</li>";
+                    echo"<li>Reference Id: $reference_id</li>";
+                    echo"<li>Successful Applicant Will Be Reported to: $report_to</li>";
+                    echo"</ol>";
+                    echo"<h3>About This Role</h3>";
+                    echo"<p>$about</p>" ;
+                    $responsibility = query("responsibilities", $conn, $job_id);
+                    echo"<h3>Key Responsibilities</h3>";
+                    if($responsibility && mysqli_num_rows($responsibility) > 0){
+                        echo"<ul>";
+                        while($responsibilities = mysqli_fetch_assoc($responsibility)){
+                            $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
+                            $description = htmlspecialchars($responsibilities['description']);
+                            echo"<li>$description</li>\n";
                         }
-                        $qualification = query("qualifications", $conn, $job_id);
-                        if($qualification && mysqli_num_rows($qualification)>0){
-                            echo"<h3>Required Qualifications and Experiences</h3>";
-                            echo"<ul>";
-                            while($qualifications = mysqli_fetch_assoc($qualification)){ 
-                                $qualifications_id = htmlspecialchars($qualifications['qualifications_id']);
-                                $description = htmlspecialchars($qualifications['description']);
-                                echo"<li>$description</li>";
-                            } 
-                            echo"</ul>";
-                        }    
-                        $benefit = query("benefits", $conn, $job_id);
-                        if($benefit && mysqli_num_rows($benefit)>0){
-                            echo"<h3>Benifits</h3>";
-                            echo"<ul>";
-                            while($benefits = mysqli_fetch_assoc($benefit)){
-                                $benefits_id = htmlspecialchars($benefits['benefits_id']);
-                                $description = htmlspecialchars($benefits['description']);
-                                echo"<li>$description</li>";
-                            }
-                            echo"</ul>";    
-                        }
+                        echo"</ul>";
                     }
+                    $qualification = query("qualifications", $conn, $job_id);
+                    if($qualification && mysqli_num_rows($qualification)>0){
+                        echo"<h3>Required Qualifications and Experiences</h3>";
+                        echo"<ul>";
+                        while($qualifications = mysqli_fetch_assoc($qualification)){ 
+                            $qualifications_id = htmlspecialchars($qualifications['qualifications_id']);
+                            $description = htmlspecialchars($qualifications['description']);
+                            echo"<li>$description</li>";
+                        } 
+                        echo"</ul>";
+                    }    
+                    $benefit = query("benefits", $conn, $job_id);
+                    if($benefit && mysqli_num_rows($benefit)>0){
+                        echo"<h3>Benifits</h3>";
+                        echo"<ul>";
+                        while($benefits = mysqli_fetch_assoc($benefit)){
+                            $benefits_id = htmlspecialchars($benefits['benefits_id']);
+                            $description = htmlspecialchars($benefits['description']);
+                            echo"<li>$description</li>";
+                        }
+                        echo"</ul>";    
+                    }
+                    echo""
+                    echo"</section>";
                 }
             }
+        }
         ?>
-    
+    </section>
     <!--replaced the footer with a php include-->
       <?php include 'footer.inc'; ?>
       

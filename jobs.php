@@ -91,7 +91,7 @@
                         }
                         echo"</ul>";    
                     }
-                    echo""
+                    echo"<p><a href='apply.html' id='job_apply'>Apply</a></p>";
                     echo"</section>";
                 }
             }

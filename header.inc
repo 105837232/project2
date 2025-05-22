@@ -1,7 +1,7 @@
 <section id="header">
     <header>
         <div class="logo-title-container"> <a href="index.php"><img id="logo" src="images/groupProjectLogo_updated.png" alt="JigSaw logo" width="200" height="100"></a>
-            <h1>About Us</h1>
+            <h1>Jigsaw security</h1>
         </div>
         <nav>
             <ul>

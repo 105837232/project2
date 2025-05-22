@@ -141,6 +141,12 @@ body{
     justify-content: center;
 }
 
+/* should add letter and line spacing in text */
+#table, .avaliable {
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+}
+
 #table div {
     padding: 2%;
     border-radius: 8px;

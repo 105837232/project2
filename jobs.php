@@ -32,6 +32,10 @@
             }else{
                 $query ="SELECT * FROM jobs";
                 $job = mysqli_query($conn, $query);
+                function query($section, $conn, $job_id){
+                    $query = "SELECT * FROM $section WHERE job_id = $job_id";
+                    return mysqli_query($conn, $query);
+                }
                 if($job && mysqli_num_rows($job) > 0){
                     while($jobs = mysqli_fetch_assoc($job)){
                         $job_id = htmlspecialchars($jobs['job_id']);
@@ -56,6 +60,30 @@
                         echo"</ol>";
                         echo"<h3>About This Role</h3>";
                         echo"<p>$about</p>" ;
+                        $responsibility = query("responsibilities", $conn, $job_id);
+                        echo"<h3>Key Responsibilities</h3>";
+                        if($responsibility && mysqli_num_rows($responsibility) > 0){
+                            echo"<ul>";
+                            while($responsibilities = mysqli_fetch_assoc($responsibility)){
+                                $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
+                                $description = htmlspecialchars($responsibilities['description']);
+                                echo"<li>$description</li>\n";
+                            }
+                            echo"</ul>";
+                        }
+                        $qualification = query("qualifications", $conn, $job_id);
+                        if($qualification && mysqli_num_rows($qualification)>0){
+                            echo"<h3>Required Qualifications and Experiences</h3>";
+                            echo"<ul>";
+                            while($qualifications = mysqli_fetch_assoc($qualification)){ 
+                                $qualifications_id = htmlspecialchars($qualifications['qualifications_id']);
+                                $description = htmlspecialchars($qualifications['description']);
+                                echo"<li>$description</li>";
+                            } 
+                            echo"</ul>";
+                        }        
+
+
                     }
                 }
             }

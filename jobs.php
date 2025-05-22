@@ -81,9 +81,18 @@
                                 echo"<li>$description</li>";
                             } 
                             echo"</ul>";
-                        }        
-
-
+                        }    
+                        $benefit = query("benefits", $conn, $job_id);
+                        if($benefit && mysqli_num_rows($benefit)>0){
+                            echo"<h3>Benifits</h3>";
+                            echo"<ul>";
+                            while($benefits = mysqli_fetch_assoc($benefit)){
+                                $benefits_id = htmlspecialchars($benefits['benefits_id']);
+                                $description = htmlspecialchars($benefits['description']);
+                                echo"<li>$description</li>";
+                            }
+                            echo"</ul>";    
+                        }
                     }
                 }
             }

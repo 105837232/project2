@@ -1,98 +1,122 @@
-<?php
-    session_start();
-    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-        header("Location: ./login.php");
-    }
-
-// Include the settings file that has database connection details
-require_once("settings.php");
-
-
-// Connect to the MySQL database using the provided credentials
-$conn = mysqli_connect($host, $username, $password, $database);
-
-
-// Check if the connection is successful
-if (!$conn) {
-   // If the connection fails, stop the page and show an error message
-   die("Database connection failed: " . mysqli_connect_error());
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="This page has eoi table information">
-   <meta name="keywords" content="job, reference number, name, status">
-   <meta name="author" content="TO">
-
-
-   <title>Manage Page</title>
-
-
-   <!-- External CSS stylesheet -->
-   <link rel="stylesheet" type="text/css" href="styles/style.css">
-
-
-   <!-- Some embedded CSS for figcaption border -->
-   <style>
-       figcaption {
-           border: 1px solid black;
-       }
-   </style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOI Management</title>
 </head>
 <body>
-   <!-- Include the site header -->
-   <?php include 'header.inc'; ?>
+    <h1>EOI Management Page</h1>
+    
+    <h2>List All EOIs</h2>
+    <form method="post" action="">
+        <input type="submit" name="list_all" value="List All EOIs">
+    </form>
+    
+    <h2>List EOIs by Job Reference</h2>
+    <form method="post" action="">
+        <input type="text" name="job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="submit" name="list_by_job" value="List EOIs">
+    </form>
+    
+    <h2>List EOIs by Applicant</h2>
+    <form method="post" action="">
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name">
+        <input type="submit" name="list_by_applicant" value="List EOIs">
+    </form>
+    
+    <h2>Delete EOIs by Job Reference</h2>
+    <form method="post" action="">
+        <input type="text" name="delete_job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="submit" name="delete_eoi" value="Delete EOIs">
+    </form>
+    
+    <h2>Change EOI Status</h2>
+    <form method="post" action="">
+        <input type="text" name="status_job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="text" name="new_status" placeholder="Enter New Status" required>
+        <input type="submit" name="change_status" value="Change Status">
+    </form>
 
+    <?php
 
-   <section id="main">
-       <?php
-       // Check if the user is logged in and their username is 'sirdoki'
-       if (isset($_SESSION['username']) && $_SESSION['username'] == 'manager') {
-           echo '<h1>Hi Manager</h1>';
-           echo '<p>List of EOIs:</p>';
+    // Database connection
+    $conn = new mysqli('localhost', 'username', 'password', 'database');
 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-           // Query to get all eois from the 'eoi' table
-           $query = "SELECT id, name, description FROM eoi";
-           $result = mysqli_query($conn, $query);
+    // List all EOIs
+    if (isset($_POST['list_all'])) {
+        $sql = "SELECT * FROM eoi";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "ID: " . $row["id"]. " - Job Ref: " . $row["job_ref"]. " - Applicant: " . $row["applicant_name"]. "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
 
+    // List EOIs by Job Reference
+    if (isset($_POST['list_by_job'])) {
+        $job_ref = $_POST['job_ref'];
+        $sql = "SELECT * FROM eoi WHERE job_ref = '$job_ref'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "ID: " . $row["id"]. " - Job Ref: " . $row["job_ref"]. " - Applicant: " . $row["applicant_name"]. "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
 
-           // If there are rows returned, display them in a table
-           if (mysqli_num_rows($result) > 0) {
-               echo '<table border="1" cellpadding="10" cellspacing="0">';
-               echo '<tr><th>ID</th><th>Name</th><th>Description</th></tr>';
-              
-               // Fetch each row and show it in the table
-               while ($row = mysqli_fetch_assoc($result)) {
-                   echo '<tr>';
-                   echo '<td>' . $row['id'] . '</td>';
-                   echo '<td>' . $row['name'] . '</td>';
-                   echo '<td>' . $row['description'] . '</td>';
-                   echo '</tr>';
-               }
+    // List EOIs by Applicant
+    if (isset($_POST['list_by_applicant'])) {
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $sql = "SELECT * FROM eoi WHERE first_name LIKE '%$first_name%' AND last_name LIKE '%$last_name%'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "ID: " . $row["id"]. " - Job Ref: " . $row["job_ref"]. " - Applicant: " . $row["applicant_name"]. "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
 
+    // Delete EOIs by Job Reference
+    if (isset($_POST['delete_eoi'])) {
+        $delete_job_ref = $_POST['delete_job_ref'];
+        $sql = "DELETE FROM eoi WHERE job_ref = '$delete_job_ref'";
+        if ($conn->query($sql) === TRUE) {
+            echo "EOIs deleted successfully.";
+        } else {
+            echo "Error deleting EOIs: " . $conn->error;
+        }
+    }
 
-               echo '</table>';
-           } else {
-               // If no information is found in the table
-               echo '<p>No information on following query!</p>';
-           }
-       } else {
-           // If user is not the 'manager', show a warning message
-           echo '<h1>Hi, you are not the manager</h1>';
-           echo '<p>This page is for authorised users only.</p>';
-       }
-       ?>
-   </section>
+    // Change EOI Status
+    if (isset($_POST['change_status'])) {
+        $status_job_ref = $_POST['status_job_ref'];
+        $new_status = $_POST['new_status'];
+        $sql = "UPDATE eoi SET status = '$new_status' WHERE job_ref = '$status_job_ref'";
+        if ($conn->query($sql) === TRUE) {
+            echo "Status updated successfully.";
+        } else {
+            echo "Error updating status: " . $conn->error;
+        }
+    }
+    include 'footer.inc';
+        //connect to data base
+        require_once("settings.php");
 
-
-   <!-- Include the site footer -->
-   <?php include_once 'footer.inc'; ?>
+    $conn->close();
+    ?>
 </body>
 </html>
-

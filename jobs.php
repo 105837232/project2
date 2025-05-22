@@ -71,6 +71,18 @@
                             }
                             echo"</ul>";
                         }
+                        $qualification = query("qualifications", $conn, $job_id);
+                        if($qualification && mysqli_num_rows($qualification)>0){
+                            echo"<h3>Required Qualifications and Experiences</h3>";
+                            echo"<ul>";
+                            while($qualifications = mysqli_fetch_assoc($qualification)){ 
+                                $qualifications_id = htmlspecialchars($qualifications['qualifications_id']);
+                                $description = htmlspecialchars($qualifications['description']);
+                                echo"<li>$description</li>";
+                            } 
+                            echo"</ul>";
+                        }        
+
 
                     }
                 }

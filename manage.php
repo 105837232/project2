@@ -1,7 +1,8 @@
 <?php
-// Start a session to use session variables like login info
-session_start();
-
+    session_start();
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        header("Location: ./login.php");
+    }
 
 // Include the settings file that has database connection details
 require_once("settings.php");

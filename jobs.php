@@ -32,6 +32,10 @@
             }else{
                 $query ="SELECT * FROM jobs";
                 $job = mysqli_query($conn, $query);
+                function query($section, $conn, $job_id){
+                    $query = "SELECT * FROM $section WHERE job_id = $job_id";
+                    return mysqli_query($conn, $query);
+                }
                 if($job && mysqli_num_rows($job) > 0){
                     while($jobs = mysqli_fetch_assoc($job)){
                         $job_id = htmlspecialchars($jobs['job_id']);

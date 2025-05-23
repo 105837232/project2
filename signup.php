@@ -1,44 +1,43 @@
 <?php
-session_start();
 require_once("settings.php");
 
-$message = ""; 
+$message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect($host, $username, $password, $database);
 
-
+   
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    
     $input_username = trim($_POST['username']);
     $input_password = trim($_POST['password']);
 
+    $hashed_password = password_hash($input_password, PASSWORD_DEFAULT);
 
-    $query = "SELECT username, password FROM users WHERE username = ?";
+!
+    $query = "INSERT INTO users (username, password) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $query);
 
     if ($stmt) {
-        
-        mysqli_stmt_bind_param($stmt, "s", $input_username);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $user = mysqli_fetch_assoc($result);
 
+        mysqli_stmt_bind_param($stmt, "ss", $input_username, $hashed_password);
+        $result = mysqli_stmt_execute($stmt);
 
-        if ($user && password_verify($input_password, $user['password'])) {
-            $_SESSION['username'] = $user['username'];
-            header("Location: welcome.php");
-            exit();
+        if ($result) {
+            $message = "✅ Signup successful. You can now <a href='login.php'>login</a>.";
         } else {
-
-            $message = "❌ Incorrect username or password.";
+            
+            if (mysqli_errno($conn) == 1062) { 
+                $message = "❌ Signup failed. Username already exists. Please choose a different one.";
+            } else {
+                $message = "❌ Signup failed. Please try again. Error: " . mysqli_error($conn);
+            }
         }
         mysqli_stmt_close($stmt);
     } else {
-        $message = "❌ Login failed: Could not prepare statement.";
+        $message = "❌ Signup failed: Could not prepare statement.";
     }
 
     mysqli_close($conn);
@@ -49,20 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2>Sign Up</h2>
     <?php if (!empty($message)) : ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>
-    <form action="login.php" method="post">
+    <form action="signup.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Sign Up">
     </form>
-    <p>Don't have an account? <a href="signup.php">Sign Up here</a>.</p>
+    <p>Already have an account? <a href="login.php">Login here</a>.</p>
 </body>
 </html>

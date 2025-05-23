@@ -162,6 +162,7 @@ body{
     text-align: center;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
     font-size: 0.75em;
+    clear: both; 
 }
 #footer nav ul {
     list-style-type: none;
@@ -384,13 +385,18 @@ input[type="radio"]{
 
 /*job.html styling*/
 #body2 {
-    background-color:#87847f;
+    background-color:#FFFCF2;
 }
 
 .h2job{
     display: flex;
     justify-content: center;
     text-decoration: underline;
+    border: #FFFCF2;
+    background-color: #FFFCF2;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
 }
 
 #aside{
@@ -403,12 +409,6 @@ input[type="radio"]{
     background-color: #FFFCF2;
     box-sizing: border-box;
     min-width: 150px;
-}
-
-#job_h1{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 3em;
-    clear: both;
 }
 
 #caption{
@@ -426,55 +426,46 @@ input[type="radio"]{
     margin: 15px;
     padding: 15px;
     width: 65%;
-    background-color: #FFFCF2;
+    background-color: #252422;
     float: left;
 }
 
 #swinburne{
+    display: flex;
+    justify-content: center;
     max-width: 100%;
     height: auto;
 }
 
-#footer2 {
-    background-color: #252422;
-    color: #fffcf2;
-    padding: 20px 10px;
-    text-align: center;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 0.75em;
-    clear: both;
-}
-#footer2 nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-#footer2 nav ul li {
-    flex-grow: 1;
-}
-#footer2 nav ul li a {
-    color: #ccc5b9;
+.job_apply{
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #070707;
+    padding: 10px; 
+    border: solid #E3655B;
     border-radius: 8px;
-    background-color: #403D39;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
     display: block;
+    width: 100px;
     text-align: center;
+    background-color:#E3655B ;
+    margin: 10px;
+}
+
+.job_apply:hover{
+    background-color: white;
+
+}
+
+.job_description, .info, .responsibilities, .qualification, .benefits{ 
+    border: solid #FFFCF2;
+    border-radius: 8px;
     padding: 10px;
+    background-color:#FFFCF2;
+    margin: 10px;
 }
-#footer2 nav ul li a:hover {
-    background-color: #E3655B;
-    color: #403D39;
-    transition: background-color 0.3s, color 0.3s;
-}
-#footer2 p a {
-    color: #E3655B;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+
+
 
 /*end for job.html*/ 
 

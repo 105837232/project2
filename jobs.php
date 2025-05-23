@@ -46,21 +46,26 @@
                     $report_to = htmlspecialchars($jobs['report_to']);
                     $about = htmlspecialchars($jobs['about']);
                     echo"<section class='job'>";
-                    echo"<h2 class='h2job'>$title</h2>";
+                    echo"<h1 class='h2job'>$title</h1>";
+                    echo"<div class='job_description'>";
                     echo"<h3>Job Descriptions</h3>";
                     echo"<ol>";
                     echo"<li>Position: $role $title</li>";
                     echo"<li>Type of Job: $type</li>";
-                    echo"<Li>Salary Range: $salary_min - $salary_max</Li>";
+                    echo"<li>Salary Range: $salary_min - $salary_max</li>";
                     echo"<li>Location: $location</li>";
                     echo"<li>Reference Id: $reference_id</li>";
                     echo"<li>Successful Applicant Will Be Reported to: $report_to</li>";
                     echo"</ol>";
+                    echo"</div>";                   
+                    echo"<div class= \"info\">";
                     echo"<h3>About This Role</h3>";
-                    echo"<p>$about</p>" ;
+                    echo"<p>$about</p>";
+                    echo"</div>";
                     $responsibility = query("responsibilities", $conn, $job_id);
-                    echo"<h3>Key Responsibilities</h3>";
                     if($responsibility && mysqli_num_rows($responsibility) > 0){
+                        echo"<div class='responsibilities'>";                    
+                        echo"<h3>Key Responsibilities</h3>";
                         echo"<ul>";
                         while($responsibilities = mysqli_fetch_assoc($responsibility)){
                             $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
@@ -68,9 +73,11 @@
                             echo"<li>$description</li>\n";
                         }
                         echo"</ul>";
+                        echo"</div>";
                     }
                     $qualification = query("qualifications", $conn, $job_id);
                     if($qualification && mysqli_num_rows($qualification)>0){
+                        echo"<div class='qualification'>";
                         echo"<h3>Required Qualifications and Experiences</h3>";
                         echo"<ul>";
                         while($qualifications = mysqli_fetch_assoc($qualification)){ 
@@ -79,9 +86,11 @@
                             echo"<li>$description</li>";
                         } 
                         echo"</ul>";
+                        echo"</div>";
                     }    
                     $benefit = query("benefits", $conn, $job_id);
                     if($benefit && mysqli_num_rows($benefit)>0){
+                        echo"<div class='benefits'>";
                         echo"<h3>Benifits</h3>";
                         echo"<ul>";
                         while($benefits = mysqli_fetch_assoc($benefit)){
@@ -89,15 +98,16 @@
                             $description = htmlspecialchars($benefits['description']);
                             echo"<li>$description</li>";
                         }
-                        echo"</ul>";    
+                        echo"</ul>";  
+                        echo"</div>";   
                     }
-                    echo"<p><a href='apply.html' id='job_apply'>Apply</a></p>";
+                    echo"<p><a href='apply.php' class=\"job_apply\">Apply</a></p>";
                     echo"</section>";
                 }
             }
         }
-        ?>
-    </section>
+        mysqli_close($conn);
+    ?>
     <!--replaced the footer with a php include-->
       <?php include 'footer.inc'; ?>
       

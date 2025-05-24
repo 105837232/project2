@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Register page/title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <?php include 'header.inc'; ?>
-    <h2>Sign Up</h2>
+    <h2>Register Page</h2>
     <?php if (!empty($message)) : ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>

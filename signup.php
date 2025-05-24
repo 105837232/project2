@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (!empty($message)) : ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>
+    <div class="container">
     <form action="signup.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
@@ -64,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Sign Up">
     </form>
+    </div>
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
     <?php include 'footer.inc'; ?>
 </body>

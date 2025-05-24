@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Sign Up</title>
 </head>
 <body>
+    <?php include 'header.inc'; ?>
     <h2>Sign Up</h2>
     <?php if (!empty($message)) : ?>
         <p><?php echo $message; ?></p>
@@ -63,5 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Sign Up">
     </form>
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -13,5 +13,6 @@
         <p>Jira Tool used located: <a class="link" href="https://project1webtech.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiMTNjNTIzYzM2MTJiNDRiMjgzOWRmYTI1NGE0NDg3Y2EiLCJwIjoiaiJ9" target="_blank">Jira Link</a></p>
         <p> &copy; 2025 Swinburne Students of Web Developent Project <a href="about.php">Located Here</a></p>
         <p>GitHub Repository Link <a href="https://github.com/JoshThai/project1.git" target="_blank">project1</a></p>
+        <p>Manager <a href="login.php" target="_blank">login</a></p>
     </footer>
 </section>

@@ -6,11 +6,12 @@
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About us</a></li>
                 <li><a href="jobs.php">Job Description</a></li>
                 <li><a href="apply.php">Apply</a></li>
+                <li><a href="about.php">About us</a></li>
+                <li><a href="manage.php">Manager</a></li>              
                 <li><a class="link" href="mailto:info@jigsaw.com.au">info@jigsaw.com.au</a></li>
-                <li><a href="manage.php">Manager</a></li>
+                
             </ul>
         </nav>
     </header>

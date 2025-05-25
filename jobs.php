@@ -82,7 +82,7 @@
                     echo"</section>";
                 }
             }else{ 
-                echo"<p> We currently not hiring</p>"
+                echo"<p> We currently not hiring</p>";
             }
         }
         mysqli_close($conn);// close the connection

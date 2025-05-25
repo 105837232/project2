@@ -7,33 +7,27 @@ $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect($host, $username, $password, $database);
 
-
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    
     $input_username = trim($_POST['username']);
     $input_password = trim($_POST['password']);
-
 
     $query = "SELECT username, password FROM users WHERE username = ?";
     $stmt = mysqli_prepare($conn, $query);
 
     if ($stmt) {
-        
         mysqli_stmt_bind_param($stmt, "s", $input_username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $user = mysqli_fetch_assoc($result);
-
 
         if ($user && password_verify($input_password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             header("Location: welcome.php");
             exit();
         } else {
-
             $message = "❌ Incorrect username or password.";
         }
         mysqli_stmt_close($stmt);

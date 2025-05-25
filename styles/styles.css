@@ -247,6 +247,7 @@ input[type="text"]{
     background-color: #ccc5b9;
 }
 
+
 input[type="text"]:focus{
     background-color: #fffcf2;
     color: #252422;

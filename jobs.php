@@ -29,11 +29,22 @@
         }else{
             $query ="SELECT * FROM jobs";
             $job = mysqli_query($conn, $query);
-            function query($section, $conn, $job_id){
-                $stmt = $conn->prepare("SELECT * FROM $section WHERE job_id?");
+            function query($section, $conn, $job_id, $title, $class){ // function to take the job_id and echo all of the section
+                $stmt = $conn->prepare("SELECT * FROM $section WHERE job_id = ?"); // prepare statement use to prevent sql injection
                 $stmt ->bind_param("i", $job_id);
-                $stmt ->excute(); 
-                $result = $stmt
+                $stmt ->execute(); 
+                $result = $stmt->get_result();
+                if($result && mysqli_num_rows($result) > 0){ //if statement to check the query is successful and there is data 
+                        echo"<div class='$class'>";                    
+                        echo"<h3>$title</h3>";
+                        echo"<ul>";
+                        while($row = mysqli_fetch_assoc($result)){ //while loop to take all the data 
+                            $description = htmlspecialchars($row['description']);
+                            echo"<li>$description</li>\n";
+                        }
+                        echo"</ul>";
+                        echo"</div>";
+                }
             }
             if($job && mysqli_num_rows($job) > 0){  //if statement to check the query is successful and there is data 
                 while($jobs = mysqli_fetch_assoc($job)){
@@ -64,54 +75,20 @@
                     echo"<h3>About This Role</h3>";
                     echo"<p>$about</p>";
                     echo"</div>";
-                    $responsibility = query("responsibilities", $conn, $job_id);// calling the query function
-                    if($responsibility && mysqli_num_rows($responsibility) > 0){ //if statement to check the query is successful and there is data 
-                        echo"<div class='responsibilities'>";                    
-                        echo"<h3>Key Responsibilities</h3>";
-                        echo"<ul>";
-                        while($responsibilities = mysqli_fetch_assoc($responsibility)){ //while loop to take all the data 
-                            $responsibilities_id = htmlspecialchars($responsibilities['responsibilities_id']);
-                            $description = htmlspecialchars($responsibilities['description']);
-                            echo"<li>$description</li>\n";
-                        }
-                        echo"</ul>";
-                        echo"</div>";
-                    }
-                    $qualification = query("qualifications", $conn, $job_id);//calling the query function
-                    if($qualification && mysqli_num_rows($qualification)>0){ //if statement to check the query is successful and there is data 
-                        echo"<div class='qualification'>";
-                        echo"<h3>Required Qualifications and Experiences</h3>";
-                        echo"<ul>";
-                        while($qualifications = mysqli_fetch_assoc($qualification)){ //while loop to retrive all the data 
-                            $qualifications_id = htmlspecialchars($qualifications['qualifications_id']);
-                            $description = htmlspecialchars($qualifications['description']);
-                            echo"<li>$description</li>";
-                        } 
-                        echo"</ul>";
-                        echo"</div>";
-                    }    
-                    $benefit = query("benefits", $conn, $job_id);
-                    if($benefit && mysqli_num_rows($benefit)>0){ //if statement to check the query is successful and there is data 
-                        echo"<div class='benefits'>";
-                        echo"<h3>Benifits</h3>";
-                        echo"<ul>";
-                        while($benefits = mysqli_fetch_assoc($benefit)){ //while loop to retrive all the data 
-                            $benefits_id = htmlspecialchars($benefits['benefits_id']);
-                            $description = htmlspecialchars($benefits['description']);
-                            echo"<li>$description</li>";
-                        }
-                        echo"</ul>";  
-                        echo"</div>";   
-                    }
+                    query("responsibilities", $conn, $job_id, "Key Responsibilities", "responsibilities"); //function called 
+                    query("qualifications", $conn, $job_id, "Qualifications and Experiences", "qualification");
+                    query("benefits", $conn, $job_id, "Benefits", "benefits");
                     echo"<p><a href='apply.php' class='job_apply'>Apply</a></p>";
                     echo"</section>";
                 }
+            }else{ 
+                echo"<p> We currently not hiring</p>"
             }
         }
         mysqli_close($conn);// close the connection
     ?>
     <!--replaced the footer with a php include-->
-      <?php include 'footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
       
 </body>
 </html>

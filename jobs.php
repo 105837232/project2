@@ -36,7 +36,7 @@
             echo "</aside>";      
             $query ="SELECT * FROM jobs";
             $job = mysqli_query($conn, $query);
-            function query($section, $conn, $job_id, $title, $class){ // function to take the job_id and echo all of the section
+            function listSectionOfJob($section, $conn, $job_id, $title, $class){ // function to take the job_id and echo all of the section
                 $stmt = $conn->prepare("SELECT * FROM $section WHERE job_id = ?"); // prepare statement use to prevent sql injection
                 $stmt ->bind_param("i", $job_id);
                 $stmt ->execute(); 
@@ -82,10 +82,10 @@
                     echo"<h3>About This Role</h3>";
                     echo"<p>$about</p>";
                     echo"</div>";
-                    query("responsibilities", $conn, $job_id, "Key Responsibilities", "responsibilities"); //function called 
-                    query("qualifications", $conn, $job_id, "Qualifications and Experiences", "qualification");
-                    query("benefits", $conn, $job_id, "Benefits", "benefits");
-                    echo"<p><a href='apply.php' class='job_apply'>Apply</a></p>";
+                    listSectionOfJob("responsibilities", $conn, $job_id, "Key Responsibilities", "responsibilities"); //function called 
+                    listSectionOfJob("qualifications", $conn, $job_id, "Qualifications and Experiences", "qualification");
+                    listSectionOfJob("benefits", $conn, $job_id, "Benefits", "benefits");
+                    "<p><a href='apply.php' class='job_apply'>Apply</a></p>";
                     echo"</section>";
                 }
             }else{ 

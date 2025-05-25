@@ -30,8 +30,10 @@
             $query ="SELECT * FROM jobs";
             $job = mysqli_query($conn, $query);
             function query($section, $conn, $job_id){
-                $query = "SELECT * FROM $section WHERE job_id = $job_id";// function for query which takes all data with same job id
-                return mysqli_query($conn, $query);
+                $stmt = $conn->prepare("SELECT * FROM $section WHERE job_id?");
+                $stmt ->bind_param("i", $job_id);
+                $stmt ->excute(); 
+                $result = $stmt
             }
             if($job && mysqli_num_rows($job) > 0){  //if statement to check the query is successful and there is data 
                 while($jobs = mysqli_fetch_assoc($job)){

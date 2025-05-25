@@ -2,7 +2,7 @@
 require_once("settings.php");
 
 $message = "";
-$input_username = ""; // Initialize to an empty string
+$input_username = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect($host, $username, $password, $database);
@@ -11,10 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $input_username = trim($_POST['username']); // Assign submitted username
+    $input_username = trim($_POST['username']); 
     $input_password = trim($_POST['password']);
 
-    // --- Simplified Password Validation Start ---
     $password_valid = true;
     $password_error_message = "";
 
@@ -24,8 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password_valid = false;
         $password_error_message .= "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.<br>";
     }
-    // --- Simplified Password Validation End ---
-
 
     if ($password_valid) {
         $hashed_password = password_hash($input_password, PASSWORD_DEFAULT);

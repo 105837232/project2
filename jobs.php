@@ -12,21 +12,28 @@
 <body id="body2">
     <!--replaced the header with a php include-->
     <?php include 'header.inc'; ?>
-    <aside id="aside">
-        <figure>
-            <img src="images/Swinburne.png" alt="Swinburne logo" id="swinburne">
-        </figure>
-        <h2>Study online with Swinburne</h2>
-        <p>Swinburne is a world leader in online education. We use interactive and innovative technologies to deliver our online courses and degrees. 
-            From vocational education to undergraduate and postgraduate study, Swinburne has online study options at all level. 
-            <a href="https://www.swinburne.edu.au/">Learn More</a></p>
-    </aside>
     <?php
         require_once("settings.php");
         $conn = mysqli_connect($host, $username, $password, $database);//Database connection
         if(!$conn){
         echo"<p>Database connection failed: " . mysqli_connect_error() . "</p>";
         }else{
+            $query = "SELECT * FROM aside"; // retrive info from the aside table 
+            $aside = mysqli_query($conn, $query); 
+            $asides = mysqli_fetch_assoc($aside); 
+            $intro = $asides['title'];
+            $body = $asides['description'];
+            $link = $asides['link'];
+            $image = $asides['image_path'];
+            $css = $asides['css_id'];
+            echo "<aside id='aside'>";
+            echo "<figure><img src= $image alt='Swinburne logo' id='swinburne'></figure>";
+            echo "<h2>$intro</h2>";
+            echo "<p>";
+            echo "$body";
+            echo "<a href=$link>Learn More</a>";
+            echo "</p>";
+            echo "</aside>";      
             $query ="SELECT * FROM jobs";
             $job = mysqli_query($conn, $query);
             function query($section, $conn, $job_id, $title, $class){ // function to take the job_id and echo all of the section
@@ -59,7 +66,7 @@
                     $report_to = htmlspecialchars($jobs['report_to']);
                     $about = htmlspecialchars($jobs['about']);
                     echo"<section class='job'>";
-                    echo"<h1 class='h2job'>$title</h1>";
+                    echo"<h2 class='h2job'>$title</h2>";
                     echo"<div class='job_description'>";
                     echo"<h3>Job Descriptions</h3>";
                     echo"<ol>";

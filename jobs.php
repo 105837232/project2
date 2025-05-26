@@ -38,7 +38,7 @@
             echo "<a href=$link>Learn More</a>";
             echo "</p>";
             echo "</aside>";
-            $search = htmlspecialchars(trim($_GET['search']));
+            $search = htmlspecialchars(trim(isset($_GET['search'])));
             if (!empty($search)){  // use of AI to change from isset to empty for better functionality     
                 $query = "SELECT * FROM jobs WHERE title LIKE ?";
                 $stmt = $conn->prepare($query);

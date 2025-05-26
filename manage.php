@@ -156,11 +156,8 @@
            <input type="submit" value="Update Status">
        </form>
    </div>
-
-
   
 </div>
-
 
   <!-- Display results -->
    <?php if (is_object($result) && $result->num_rows > 0) { ?>

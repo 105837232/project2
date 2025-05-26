@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manager login page for the EOI management system.">
+    <meta name="author" content="Joshua Thai">
+    <link rel="stylesheet" href="styles/styley.css">
     <title>EOI Management</title>
 </head>
 <body>

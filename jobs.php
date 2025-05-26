@@ -12,12 +12,16 @@
 <body id="body2">
     <!--replaced the header with a php include-->
     <?php include 'header.inc'; ?>
+    <form method="GET" id = "searchbar"> <!-- for the search function -->
+        <input type="text" name="search" placeholder="Search jobs...">
+        <button type="submit" id ="search">Search</button>
+    </form>
     <?php
         require_once("settings.php");
         $conn = mysqli_connect($host, $username, $password, $database);//Database connection
         if(!$conn){
         echo"<p>Database connection failed: " . mysqli_connect_error() . "</p>";
-        }else{
+        }else{  
             $query = "SELECT * FROM aside"; // retrive info from the aside table 
             $aside = mysqli_query($conn, $query); 
             $asides = mysqli_fetch_assoc($aside); 
@@ -33,9 +37,19 @@
             echo "$body";
             echo "<a href=$link>Learn More</a>";
             echo "</p>";
-            echo "</aside>";      
-            $query ="SELECT * FROM jobs";
-            $job = mysqli_query($conn, $query);
+            echo "</aside>";
+            $search = htmlspecialchars(trim($_GET['search']));
+            if (!empty($search)){  // use of AI to change from isset to empty for better functionality     
+                $query = "SELECT * FROM jobs WHERE title LIKE ?";
+                $stmt = $conn->prepare($query);
+                $searchTerm = "%$search%";
+                $stmt->bind_param("s", $searchTerm);
+                $stmt->execute();
+                $job = $stmt->get_result();
+            } else {  
+                $query = "SELECT * FROM jobs";
+                $job = mysqli_query($conn, $query);
+            }
             function listSectionOfJob($section, $conn, $job_id, $title, $class){ // function to take the job_id and echo all of the section
                 $stmt = $conn->prepare("SELECT * FROM $section WHERE job_id = ?"); // prepare statement use to prevent sql injection
                 $stmt ->bind_param("i", $job_id);
@@ -85,7 +99,7 @@
                     listSectionOfJob("responsibilities", $conn, $job_id, "Key Responsibilities", "responsibilities"); //function called 
                     listSectionOfJob("qualifications", $conn, $job_id, "Qualifications and Experiences", "qualification");
                     listSectionOfJob("benefits", $conn, $job_id, "Benefits", "benefits");
-                    "<p><a href='apply.php' class='job_apply'>Apply</a></p>";
+                    echo"<p><a href='apply.php' class='job_apply'>Apply</a></p>";
                     echo"</section>";
                 }
             }else{ 

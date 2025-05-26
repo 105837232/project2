@@ -62,8 +62,8 @@
          </ul>
          <p>And more depending on job position and urgency to fill positions.</p>
       <h2>Interested in applying?</h2>
-      <p>If you are interested in applying for a potential position at JigSaw Security, go to <a href="job.html">Job Description</a> for
-      information of avaliable jobs or to <a href="apply.html">Apply</a> to apply for a avaliable job position.</p>
+      <p>If you are interested in applying for a potential position at JigSaw Security, go to <a href="job.php">Job Description</a> for
+      information of avaliable jobs or to <a href="apply.php">Apply</a> to apply for a avaliable job position.</p>
       </section>
      <!--Copyright link and email-->
      <!--replaced the footer with a php include-->

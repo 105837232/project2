@@ -71,9 +71,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(14, 'joshuathai', '$2y$10$Wn.Tbr4LM4kYg72fcYeoou.8jPxDX9ho8fMwszYqb/5ZXmy2TCdmC'),
-(19, 'joshuathai343', '$2y$10$4V.4aAG2Lso.TSw6US4zwOjMLHZCpfPp1747KwpVhw0KL3iDLtT.2'),
-(21, 'joshuathaiDDS', '$2y$10$.8Fr7QmfK.hwLxboKp0ne.9jLiDIeKBzAlzIJbXkU5VmgGpFqVB/6');
+
 
 --
 -- Indexes for dumped tables

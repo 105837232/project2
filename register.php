@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!preg_match($regex, $input_password)) {
         $password_valid = false;
-        $password_error_message .= "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.<br>";
+        $password_error_message .= "Password must be at least 8 characters long and contain at least one uppercase letter (e.g., A,B,C...), one lowercase letter e.g., (a,b,c...), one number e.g.,(1,2,3...) , and one symbol (!,@,#).<br>";
     }
 
     if ($password_valid) {
@@ -86,9 +86,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
     <form action="register.php" method="post">
         <label for="username">Please enter a Username:</label><br>
-        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($input_username); ?>" required><br><br>
+        <input type="text" id="username" name="username" placeholder = "e.g., JohnDoe123#" value="<?php echo htmlspecialchars($input_username); ?>" required><br><br>
         <label for="password">Please enter a Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="password" placeholder = "At least 8 characters long"required><br><br>
         <input type="submit" value="Sign Up">
     </form>
     </div>

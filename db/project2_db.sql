@@ -55,7 +55,7 @@ INSERT INTO `eoi` (`EOInumber`, `jobRef`, `firstName`, `lastName`, `dob`, `gende
 
 
 
-
+----------------------------------------------------------------- THIS IS THE START SQL FOR REGISTER & LOGIN-------------------------------------------------------------------
 --
 -- Table structure for table `users`
 --

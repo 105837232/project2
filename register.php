@@ -72,7 +72,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title> <link rel="stylesheet" href="styles/styles.css">
+    <meta name="description" content="Manager registration page for the EOI management system.">
+    <meta name="keywords" content="registration, manager, EOI, signup">
+    <meta name="author" content="Joshua Thai">
+    <title>Register Page</title> <link rel="stylesheet" href="styles/styley.css">
 </head>
 <body>
     <?php include 'header.inc'; ?>
@@ -89,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Sign Up">
     </form>
     </div>
-    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <p id="question">Already have an account? <a href="login.php">Login here</a>.</p>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

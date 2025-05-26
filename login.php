@@ -43,8 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manager login page for the EOI management system.">
+    <meta name="author" content="Joshua Thai">
     <title>Login</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styley.css">
 </head>
 <body>
     <?php include 'header.inc'; ?>
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Login">
     </form>
     </div>
-    <p>Don't have an account? <a href="register.php">Register here</a>.</p>
+    <p id="question">Don't have an account? <a href="register.php">Register here</a>.</p>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -1,0 +1,219 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: poppins, sans-serif;
+    background-color: #fffcf2;
+}/* Header style */
+#header {
+    padding: 20px 10px;
+    background-color: #252422;
+    color: #FFFCF2;
+    border-bottom: 5px solid #E3655B;
+}
+header {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-wrap: wrap; 
+}
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; 
+    flex: 1; 
+}
+#header h1 {
+    font-size: 2em;
+    color: #FFFCF2;
+    margin: 0 0 0 20px; 
+    border-bottom: 2.5px solid #E3655B;
+    padding: 0 10px;
+    display: inline-block;
+}
+nav {
+    background-color: #403D39;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 20px;
+    flex-basis: auto; 
+}
+
+#header nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+#header nav ul li {
+    padding: 10px;
+}
+
+#header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #CCC5B9;
+    padding: 10px; 
+    border-radius: 8px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #E3655B;
+    color: #252422;
+    transition: background-color 0.3s, color 0.3s;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        align-items: stretch; 
+    }
+
+    .logo-title-container {
+        margin-left: 0; 
+    }
+
+    #header h1 {
+        margin-left: 0; 
+        text-align: center; 
+    }
+
+    nav {
+        margin-right: 0; 
+    }
+    #aside {
+        float: none;
+        width: 100%;
+    }
+    .job { 
+        width: 100%;
+    }
+}
+/* Footer Styling */
+#footer {
+    background-color: #252422;
+    color: #fffcf2;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.75em;
+    clear: both; 
+}
+#footer nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+#footer nav ul li {
+    flex-grow: 1;
+}
+#footer nav ul li a {
+    color: #ccc5b9;
+    border-radius: 8px;
+    background-color: #403D39;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+#footer nav ul li a:hover {
+    background-color: #E3655B;
+    color: #403D39;
+    transition: background-color 0.3s, color 0.3s;
+}
+#footer p a {
+    color: #E3655B;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.link {
+    color: #E3655B;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.container{
+    background-color: #403d39;
+    padding: 2em;
+    border-radius: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+label{
+    color: #fffcf2;
+    font-size: 20px;
+    margin: 10px 0;
+    display: block;
+}
+#applyh2{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline #E3655B;
+    font-size: 2em;
+    color: #403D39;
+}
+p{
+    color: #fffcf2;
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+}
+#question {
+    color: #252422;
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+}
+#question a{
+    color: #E3655B;
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+}
+input[type="submit"]{
+    background-color: #252422;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+}
+input[type="submit"]:hover{
+    background-color: #fffcf2;
+    color: #252422;
+    transition: 0.3s;
+    
+}
+input[type="text"]{
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ccc5b9;
+}
+input[type="text"]:focus{
+    background-color: #fffcf2;
+    color: #252422;
+    transition: 0.2s;
+    border: 2px solid #252422;
+}
+input[type="password"]{
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ccc5b9;
+}
+input[type="password"]:focus{
+    background-color: #fffcf2;
+    color: #252422;
+    transition: 0.2s;
+    border: 2px solid #252422;
+}

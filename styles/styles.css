@@ -445,7 +445,7 @@ input[type="radio"]{
     height: auto;
 }
 
-.job_apply{
+.job_apply {
     font-size: 1.5em;
     text-decoration: none;
     font-weight: bold;
@@ -460,7 +460,7 @@ input[type="radio"]{
     margin: 10px;
 }
 
-.job_apply:hover{
+.job_apply:hover {
     background-color: white;
 
 }
@@ -471,6 +471,29 @@ input[type="radio"]{
     padding: 10px;
     background-color:#FFFCF2;
     margin: 10px;
+}
+
+#search {
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #070707;
+    padding: 8px; 
+    border: solid #E3655B;
+    border-radius: 8px;
+    width: 100px;
+    text-align: center;
+    background-color:#E3655B ;
+    margin: 10px;
+}
+
+#search:hover {
+    background-color: white;
+}
+
+#searchbar{
+    clear: both;
+    margin: 30px;
 }
 
 

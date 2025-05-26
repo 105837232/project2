@@ -248,7 +248,12 @@ input[type="text"]{
     background-color: #ccc5b9;
 }
 
-
+input[type="password"]{
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ccc5b9;
+}
 input[type="text"]:focus{
     background-color: #fffcf2;
     color: #252422;
@@ -293,6 +298,7 @@ input[type="email"]{
     border-radius: 4px;
     background-color: #ccc5b9;
 }
+
 input[type="tel"]{
     padding: 16px 20px;
     border: none;

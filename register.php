@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'header.inc'; ?>
     <h2 id="applyh2">Manager Register</h2>
     <?php if (!empty($message)) : ?>
-        <p><?php echo $message; ?></p>
+        <p class="message-status"><?php echo $message; ?></p>
     <?php endif; ?>
     <div class="container">
     <form action="register.php" method="post">

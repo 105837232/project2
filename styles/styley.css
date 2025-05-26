@@ -3,7 +3,8 @@ body{
     padding: 0;
     font-family: poppins, sans-serif;
     background-color: #fffcf2;
-}/* Header style */
+}
+/* Header style */
 #header {
     padding: 20px 10px;
     background-color: #252422;
@@ -216,4 +217,9 @@ input[type="password"]:focus{
     color: #252422;
     transition: 0.2s;
     border: 2px solid #252422;
+}
+
+/* New style for messages */
+.message-status {
+    color: #252422; /* Black/dark grey color */
 }

@@ -8,7 +8,7 @@
 <body>
     <?php include 'header.inc'; ?>
     <h1>EOI Management Page</h1>
-    
+
     <div class="EOI" >
     <h2>List All EOIs</h2>
     <form method="post" action="">
@@ -41,6 +41,7 @@
         <input type="submit" name="change_status" value="Change Status">
     </form>
     </div>
+    <?php include 'footer.inc'; ?>
 
     <?php
 
@@ -115,9 +116,9 @@
         }
     }
 
-    include 'footer.inc';
         //connect to data base
         require_once("settings.php");
     $conn->close();
     ?>
+</body>
 </html>

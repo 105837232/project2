@@ -27,33 +27,55 @@ USE `project2_db`;
 
 CREATE TABLE `eoi` (
   `EOInumber` int(11) NOT NULL,
-  `jobRef` char(5) NOT NULL,
-  `firstName` varchar(20) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
-  `dob` varchar(10) NOT NULL,
-  `gender` enum('Male','Female') NOT NULL,
-  `address` varchar(40) NOT NULL,
-  `suburb` varchar(40) NOT NULL,
-  `state` varchar(10) NOT NULL,
-  `postcode` char(4) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `phone` varchar(12) NOT NULL,
-  `skills` text,
-  `otherSkills` text,
-  `status` enum('New','Current','Final') NOT NULL DEFAULT 'New'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `referenceNumber` varchar(20) DEFAULT NULL,
+  `firstName` varchar(50) DEFAULT NULL,
+  `lastName` varchar(50) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `gender` enum('Male','Female','Other') DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `suburb` varchar(50) DEFAULT NULL,
+  `state` varchar(3) DEFAULT NULL,
+  `postcode` varchar(4) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `skill1` varchar(50) DEFAULT NULL,
+  `skill2` varchar(50) DEFAULT NULL,
+  `skill3` varchar(50) DEFAULT NULL,
+  `skill4` varchar(50) DEFAULT NULL,
+  `otherSkillsDescription` text DEFAULT NULL,
+  `Status` enum('New','Current','Final') DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `eoi`
 --
 
-INSERT INTO `eoi` (`EOInumber`, `jobRef`, `firstName`, `lastName`, `dob`, `gender`, `address`, `suburb`, `state`, `postcode`, `email`, `phone`, `skills`, `otherSkills`, `status`) VALUES
-(1, 'CS456', 'Lu', 'Abc', '19/01/2005', 'Male', 'Kieu Mai', 'Hanoi', 'NSW', '1001', 'hashing.bump@gmail.com', '0784758412', 'JavaScript, Others', 'Nodejs', 'New'),
-(2, 'CS666', 'Lock', 'Key', '10/02/2005', 'Male', 'Long Bien', 'Ha Noi', 'VIC', '3002', 'lockkey@gmail.com', '0945656767', 'HTML, CSS', '', 'Current'),
-(3, 'PR123', 'Nami', 'Lee', '15/03/2005', 'Female', 'Tran Binh', 'Hanoi', 'NSW', '2619', 'namiluu@gmail.com', '0383874893', 'HTML, CSS', '', 'New'),
-(4, 'CS666', 'Teagan', 'Osha', '29/05/2005', 'Female', 'Kim Giang', 'Hanoi', 'SA', '5001', 'hieunguyen@gmail.com', '0978452563', 'CSS, Others', 'Reactjs', 'New');
+INSERT INTO `eoi` (`EOInumber`, `referenceNumber`, `firstName`, `lastName`, `date`, `gender`, `address`, `suburb`, `state`, `postcode`, `email`, `phone`, `skill1`, `skill2`, `skill3`, `skill4`, `otherSkillsDescription`, `Status`) VALUES
+(1, 'REF001', 'Anna', 'Sakaida', '2004-12-12', 'Female', '123 rah', 'rahhh', 'VIC', '3000', 'rahh@rahh.com', '041234567', 'HTML', 'CSS', '', '', '', 'New'),
+(2, 'REF001', 'Anna', 'Sakaida', '2004-12-12', 'Female', '123 rah', 'rahhh', 'VIC', '3000', 'rahh@rahh.com', '041234567', 'HTML', 'CSS', '', '', '', 'New'),
+(3, 'REF001', 'Anna', 'Sakaida', '2004-12-12', 'Female', '123 rah', 'rahhh', 'VIC', '3000', 'rahh@rahh.com', '041234567', 'HTML', 'CSS', '', '', '', 'New'),
+(4, 'REF002', 'Anna', 'Sakaida', '2004-12-12', 'Female', '123 wa', 'waa', 'VIC', '3000', 'waaa@waa.com', '0456234567', 'CSS', 'PHP', '', '', '', 'New'),
+(5, 'REF001', 'djandj', 'sdjm', '2013-09-22', 'Female', '2391 isdhnis', 'nasidnsa', 'NT', '3948', '12132@jnds.com', '048748383', 'HTML', 'JavaScript', '', '', 'jnrwheiourhwquiehdwqd', 'New');
 
+--
+-- Indexes for dumped tables
+--
 
+--
+-- Indexes for table `eoi`
+--
+ALTER TABLE `eoi`
+  ADD PRIMARY KEY (`EOInumber`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `eoi`
+--
+ALTER TABLE `eoi`
+  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 ----------------------------------------------------------------- THIS IS THE START SQL FOR REGISTER & LOGIN-------------------------------------------------------------------
 --

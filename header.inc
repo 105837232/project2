@@ -11,7 +11,7 @@
                 <li><a href="about.php">About us</a></li>
                 <li><a href="login.php">Manager</a></li>
                 <li><a href="enhancements.php">Enhancements</a></li>              
-                <li><a class="link" href="mailto:info@jigsaw.com.au">info@jigsaw.com.au</a></li>
+                <li><a class="link" href="mailto:info@jigsaw.com.au">Email</a></li>
                 
             </ul>
         </nav>

@@ -9,6 +9,50 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOI Management</title>
+</head>
+<body>
+    <?php include 'header.inc'; ?>
+    <h1>EOI Management Page</h1>
+    
+    <h2>List All EOIs</h2>
+    <form method="post" action="">
+        <input type="submit" name="list_all" value="List All EOIs">
+    </form>
+    
+    <h2>List EOIs by Job Reference</h2>
+    <form method="post" action="">
+        <input type="text" name="job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="submit" name="list_by_job" value="List EOIs">
+    </form>
+    
+    <h2>List EOIs by Applicant</h2>
+    <form method="post" action="">
+        <input type="text" name="firstName" placeholder="First Name">
+        <input type="text" name="lastName" placeholder="Last Name">
+        <input type="submit" name="list_by_applicant" value="List EOIs">
+    </form>
+      
+    <h2>Delete EOIs by Job Reference</h2>
+    <form method="post" action="">
+        <input type="text" name="delete_job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="submit" name="delete_eoi" value="Delete EOIs">
+    </form>
+    
+    <h2>Change EOI Status</h2>
+    <form method="post" action="">
+        <input type="text" name="status_job_ref" placeholder="Enter Job Reference Number" required>
+        <input type="text" name="new_status" placeholder="Enter New Status" required>
+        <input type="submit" name="change_status" value="Change Status">
+    </form>
+<?php
     // List all EOIs
     if (isset($_POST['list_all'])) {
         $sql = "SELECT * FROM eoi";
@@ -78,46 +122,4 @@
         require_once("settings.php");
     $conn->close();
     ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EOI Management</title>
-</head>
-<body>
-    <?php include 'header.inc'; ?>
-    <h1>EOI Management Page</h1>
-    
-    <h2>List All EOIs</h2>
-    <form method="post" action="">
-        <input type="submit" name="list_all" value="List All EOIs">
-    </form>
-    
-    <h2>List EOIs by Job Reference</h2>
-    <form method="post" action="">
-        <input type="text" name="job_ref" placeholder="Enter Job Reference Number" required>
-        <input type="submit" name="list_by_job" value="List EOIs">
-    </form>
-    
-    <h2>List EOIs by Applicant</h2>
-    <form method="post" action="">
-        <input type="text" name="firstName" placeholder="First Name">
-        <input type="text" name="lastName" placeholder="Last Name">
-        <input type="submit" name="list_by_applicant" value="List EOIs">
-    </form>
-      
-    <h2>Delete EOIs by Job Reference</h2>
-    <form method="post" action="">
-        <input type="text" name="delete_job_ref" placeholder="Enter Job Reference Number" required>
-        <input type="submit" name="delete_eoi" value="Delete EOIs">
-    </form>
-    
-    <h2>Change EOI Status</h2>
-    <form method="post" action="">
-        <input type="text" name="status_job_ref" placeholder="Enter Job Reference Number" required>
-        <input type="text" name="new_status" placeholder="Enter New Status" required>
-        <input type="submit" name="change_status" value="Change Status">
-    </form>
 </html>
